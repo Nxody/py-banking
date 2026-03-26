@@ -1,7 +1,7 @@
 from decimal import Decimal
 from datetime import datetime, timezone
 
-from definitions import Currency
+from classes.definitions import Currency
 
 class ExchangeRateService:
     def __init__(self, api_url: str, api_key: str):
@@ -21,7 +21,7 @@ class ExchangeRateService:
         if key not in self._cache:
             return False
         _, cached_at = self._cache[key]
-        return (datetime.utcnow() - cached_at).seconds < self._cache_ttl_seconds
+        return (datetime.now(timezone.utc) - cached_at).seconds < self._cache_ttl_seconds
 
     def _store_in_cache(self, key: tuple, rate: Decimal):
-        self._cache[key] = (rate, datetime.utcnow())
+        self._cache[key] = (rate, datetime.now(timezone.utc))

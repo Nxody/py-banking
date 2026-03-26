@@ -1,15 +1,25 @@
-from decimal import Decimal
-
 from classes.Account import Account
 from classes.Exchange import ExchangeRateService
 from classes.Transaction import Transaction
 from classes.User import User
-from classes.definitions import Currency
+from classes.definitions import Currency, TransactionType
+
+import mysql.connector
+from mysql.connector import pooling, Error
+from datetime import datetime
+from decimal import Decimal
 
 class BankService:
-    def __init__(self, db_connection, exchange_service: ExchangeRateService):
-        self.db = db_connection
-        self.exchange_service = exchange_service
+    def __init__(self, db_config: dict): #, exchange_service: ExchangeRateService): # TBA
+        self.pool = pooling.MySQLConnectionPool(
+            pool_name="banking_pool",
+            pool_size=5,
+            **db_config
+        )
+        #self.exchange_service = exchange_service
+
+    def _get_conn(self):
+        return self.pool.get_connection()
 
     def create_user(self, username: str, email: str, password_hash: str, first_name: str, last_name: str) -> User:
         print('Database not yet implemented')

@@ -1,7 +1,7 @@
 from decimal import Decimal
 from datetime import datetime, timezone
 
-from definitions import Currency, TransactionType
+from classes.definitions import Currency, TransactionType
 
 class Transaction:
     def __init__(

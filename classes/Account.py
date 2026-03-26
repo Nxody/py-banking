@@ -1,7 +1,7 @@
 from decimal import Decimal
 from datetime import datetime, timezone
 
-from definitions import Currency
+from classes.definitions import Currency
 
 class Account:
     def __init__(
