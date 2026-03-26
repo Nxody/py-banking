@@ -4,9 +4,7 @@ from classes.Transaction import Transaction
 from classes.User import User
 from classes.definitions import Currency, TransactionType
 
-import mysql.connector
-from mysql.connector import pooling, Error
-from datetime import datetime
+from mysql.connector import pooling
 from decimal import Decimal
 
 class BankService:
