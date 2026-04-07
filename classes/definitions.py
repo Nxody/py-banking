@@ -1,4 +1,6 @@
-class Currency():
+from enum import Enum
+
+class Currency(Enum):
     USD = "USD"
     EUR = "EUR"
     GBP = "GBP"
@@ -6,7 +8,7 @@ class Currency():
     SKK = "SKK"
 
 
-class TransactionType():
+class TransactionType(Enum):
     DEPOSIT = "deposit"
     WITHDRAWAL = "withdrawal"
     TRANSFER = "transfer"
