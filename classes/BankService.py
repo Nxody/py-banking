@@ -1,15 +1,13 @@
 import datetime
 
 from classes.Account import Account
-from classes.Exchange import ExchangeRateService
 from classes.Transaction import Transaction
 from classes.User import User
 from classes.definitions import Currency, TransactionType
 
 import sqlite3, os
 import random
-from decimal import Decimal
-import time
+
 
 class BankService:
     def __init__(self): #, exchange_service: ExchangeRateService):
