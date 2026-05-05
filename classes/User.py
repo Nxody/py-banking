@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 class User:
     def __init__(
         self,
-        user_id: int,
+        user_id: str,
         username: str,
         email: str,
         password_hash: str,

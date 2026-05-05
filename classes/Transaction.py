@@ -7,8 +7,8 @@ class Transaction:
     def __init__(
         self,
         transaction_id: int,
-        from_account_id: int | None,
-        to_account_id: int | None,
+        from_account_id: str | None,
+        to_account_id: str | None,
         transaction_type: TransactionType,
         amount: Decimal,
         currency: Currency,

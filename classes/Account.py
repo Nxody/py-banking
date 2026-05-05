@@ -6,8 +6,8 @@ from classes.definitions import Currency
 class Account:
     def __init__(
         self,
-        account_id: int,
-        user_id: int,
+        account_id: str,
+        user_id: str,
         currency: Currency,
         balance: Decimal = Decimal("0.00"),
         created_at: datetime = None,
